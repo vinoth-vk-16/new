@@ -4,21 +4,7 @@ import Footer from './Footer';
 import { useState } from 'react';
 import AddItem from './AddItem';
 function App() {
-  const [items,setItems]=useState(
-    [
-        {id:1,
-        checked:true,
-        item:"dinner outing" 
-        },         
-        {id:2,
-            checked:false,
-            item:"date" 
-        }, 
-        {id:3,
-            checked:true,
-            item:"coding" 
-        }
-    ])  
+  const [items,setItems]=useState(JSON.parse(localStorage.getItem("todo-list")))  
     const[newItem,setNewItem] =useState('')
     const handlecheck=(id)=>{
       const listItems =items.map((item)=>item.id===id ? {...item,checked:!item.checked} :item)
